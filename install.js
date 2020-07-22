@@ -17,10 +17,10 @@ if (fs.existsSync(configPath)) {
     const projectConfig = config.getProjectConfig(path.join(process.cwd(), '../../'));
     const project = xcode.project(projectConfig.ios.pbxprojPath).parseSync();
     const plist = getPlist(project, projectConfig.ios.sourceDir);
-    if (!plist.NSPhotoLibraryUsageDescription) {
-        plist.NSPhotoLibraryUsageDescription = 'Using photo library to select pictures';
-        console.log('Added NSPhotoLibraryUsageDescription to Info.plist');
-    }
+    // if (!plist.NSPhotoLibraryUsageDescription) {
+    //     plist.NSPhotoLibraryUsageDescription = 'Using photo library to select pictures';
+    //     console.log('Added NSPhotoLibraryUsageDescription to Info.plist');
+    // }
 
     fs.writeFileSync(
         getPlistPath(project, projectConfig.ios.sourceDir),
